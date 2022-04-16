@@ -1,0 +1,69 @@
+= Ethereum Pet Shop
+:numbered:
+
+Created by following Paulo Jeronimo's https://paulojeronimo.com/ethereum-pet-shop-tutorial[ethereum-pet-shop-tutorial].
+
+== Environment and software versions
+
+----
+$ uname -a
+Linux DESKTOP-7ES16FE 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+
+$ node -v
+v16.14.2
+
+$ npm -v
+8.5.0
+
+$ truffle version
+Truffle v5.5.10 (core: 5.5.10)
+Ganache v^7.0.3
+Solidity v0.5.16 (solc-js)
+Node v16.14.2
+Web3.js v1.5.3
+----
+
+== Steps to run and test
+
+=== Install and run Ganache and Truffe
+
+----
+$ # Install Truffle and Ganache:
+$ npm install -g truffle
+$ npm install -g ganache
+
+$ # Load ganache helper functions:
+$ source ./gc.sh
+
+$ # Start ganache:
+$ gc start
+
+$ # Compile, install and test the contracts:
+$ truffle compile
+$ truffle migrate
+$ truffle test
+----
+
+=== Configure Metamask
+
+Import the secret recovery phrase returned by the following command:
+
+----
+$ gc seedphrase
+----
+
+Add a network and configure it with the following parameters:
+
+* Network Name: Custom RPC
+* New RPC URL: http://localhost:7545
+* Chain ID: 1337
+* Currency Symbol: ETH
+
+=== Run the web app and access it
+
+----
+$ npm install
+$ npm run dev
+----
+
+Open http://localhost:3000
