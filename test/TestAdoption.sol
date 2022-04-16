@@ -14,4 +14,10 @@ contract TestAdoption {
  //The expected owner of adopted pet is this contract
  address expectedAdopter = address(this);
 
+  // Testing the adopt() function
+  function testUserCanAdoptPet() public {
+    uint returnedId = adoption.adopt(expectedPetId);
+
+    Assert.equal(returnedId, expectedPetId, "Adoption of the expected pet should match what is returned.");
+  }
 }
